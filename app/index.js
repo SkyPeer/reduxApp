@@ -1,20 +1,16 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom'
-class MyComponent extends Component {
-    state = {
-        world: 'hello!'
-    };
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import { connect } from 'react-redux';
+import { itemsFetchData } from './actions';
+import ItemList from './ItemList';
 
-    render() {
-        return(
-            <div>
-                {this.state.world + '... world'}
-            </div>
-        )
-    }
-}
+const store = configureStore(); // You can also pass in an initialState here
 
 render(
-    <MyComponent/>,
+    <Provider store={store}>
+        <ItemList />
+    </Provider>,
     document.getElementById('root')
 );
