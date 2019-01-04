@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/ItemList.js":
-/*!*************************!*\
-  !*** ./app/ItemList.js ***!
-  \*************************/
+/***/ "./app/MyComponent.js":
+/*!****************************!*\
+  !*** ./app/MyComponent.js ***!
+  \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -121,53 +121,58 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var ItemList =
+var MyComponent =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(ItemList, _Component);
+  _inherits(MyComponent, _Component);
 
-  function ItemList() {
-    _classCallCheck(this, ItemList);
+  function MyComponent() {
+    _classCallCheck(this, MyComponent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ItemList).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(MyComponent).apply(this, arguments));
   }
 
-  _createClass(ItemList, [{
+  _createClass(MyComponent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      console.log(this.props);
       this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
+      var _this = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Counter", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          console.log(_this.props);
+        }
+      }, "TEST BUTTON")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "items:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: item.id
         }, item.label);
-      }));
+      })));
     }
   }]);
 
-  return ItemList;
+  return MyComponent;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    items: state.items,
-    hasErrored: state.itemsHasErrored,
-    isLoading: state.itemsIsLoading
+    items: state.items
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchData: function fetchData(url) {
-      return dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["itemsFetchData"])(url));
+      return dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["getDataAction"])(url));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(ItemList));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(MyComponent));
 
 /***/ }),
 
@@ -175,49 +180,27 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!************************!*\
   !*** ./app/actions.js ***!
   \************************/
-/*! exports provided: itemsHasErrored, itemsIsLoading, itemsFetchDataSuccess, itemsFetchData */
+/*! exports provided: itemsFetchDataSuccess, getDataAction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemsHasErrored", function() { return itemsHasErrored; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemsIsLoading", function() { return itemsIsLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemsFetchDataSuccess", function() { return itemsFetchDataSuccess; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemsFetchData", function() { return itemsFetchData; });
-function itemsHasErrored(bool) {
-  return {
-    type: 'ITEMS_HAS_ERRORED',
-    hasErrored: bool
-  };
-}
-function itemsIsLoading(bool) {
-  return {
-    type: 'ITEMS_IS_LOADING',
-    isLoading: bool
-  };
-}
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDataAction", function() { return getDataAction; });
 function itemsFetchDataSuccess(items) {
   return {
     type: 'ITEMS_FETCH_DATA_SUCCESS',
     items: items
   };
 }
-function itemsFetchData(url) {
+function getDataAction(url) {
   return function (dispatch) {
-    dispatch(itemsIsLoading(true));
     fetch(url).then(function (response) {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-
-      dispatch(itemsIsLoading(false));
       return response;
     }).then(function (response) {
       return response.json();
     }).then(function (items) {
       return dispatch(itemsFetchDataSuccess(items));
-    }).catch(function () {
-      return dispatch(itemsHasErrored(true));
     });
   };
 }
@@ -238,21 +221,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store_configureStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/configureStore */ "./app/store/configureStore.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions */ "./app/actions.js");
-/* harmony import */ var _ItemList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ItemList */ "./app/ItemList.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./app/store.js");
+/* harmony import */ var _MyComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MyComponent */ "./app/MyComponent.js");
 
 
 
 
 
-
-
-var store = Object(_store_configureStore__WEBPACK_IMPORTED_MODULE_3__["default"])(); // You can also pass in an initialState here
+var store = Object(_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); // You can also pass in an initialState here
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
   store: store
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ItemList__WEBPACK_IMPORTED_MODULE_5__["default"], null)), document.getElementById('root'));
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MyComponent__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('root'));
 
 /***/ }),
 
@@ -270,9 +250,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  items: _reducers__WEBPACK_IMPORTED_MODULE_1__["items"],
-  itemsHasErrored: _reducers__WEBPACK_IMPORTED_MODULE_1__["itemsHasErrored"],
-  itemsIsLoading: _reducers__WEBPACK_IMPORTED_MODULE_1__["itemsIsLoading"]
+  items: _reducers__WEBPACK_IMPORTED_MODULE_1__["items"]
 }));
 
 /***/ }),
@@ -281,44 +259,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************!*\
   !*** ./app/reducers/reducers.js ***!
   \**********************************/
-/*! exports provided: itemsHasErrored, itemsIsLoading, items */
+/*! exports provided: items */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemsHasErrored", function() { return itemsHasErrored; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemsIsLoading", function() { return itemsIsLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "items", function() { return items; });
-function itemsHasErrored() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case 'ITEMS_HAS_ERRORED':
-      return action.hasErrored;
-
-    default:
-      return state;
-  }
-}
-function itemsIsLoading() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case 'ITEMS_IS_LOADING':
-      return action.isLoading;
-
-    default:
-      return state;
-  }
-}
 function items() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
     case 'ITEMS_FETCH_DATA_SUCCESS':
+      console.log('action.type = ITEMS_FETCH_DATA_SUCCESS');
       return action.items;
 
     default:
@@ -328,10 +281,10 @@ function items() {
 
 /***/ }),
 
-/***/ "./app/store/configureStore.js":
-/*!*************************************!*\
-  !*** ./app/store/configureStore.js ***!
-  \*************************************/
+/***/ "./app/store.js":
+/*!**********************!*\
+  !*** ./app/store.js ***!
+  \**********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -340,7 +293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return configureStore; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
-/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers */ "./app/reducers/index.js");
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers */ "./app/reducers/index.js");
 
 
 

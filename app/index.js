@@ -1,16 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
-import { connect } from 'react-redux';
-import { itemsFetchData } from './actions';
-import ItemList from './ItemList';
+import configureStore from './store';
+import MyComponent from './MyComponent';
 
 const store = configureStore(); // You can also pass in an initialState here
 
 render(
     <Provider store={store}>
-        <ItemList />
+        <MyComponent />
     </Provider>,
     document.getElementById('root')
 );
