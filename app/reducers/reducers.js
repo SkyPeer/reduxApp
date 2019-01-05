@@ -1,7 +1,6 @@
 
 export function items(
     state = [],
-
     action
 )
     {

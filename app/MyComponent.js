@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getDataAction } from './actions';
+import newStore from './newStore'
 
 class MyComponent extends Component {
     componentDidMount() {
@@ -12,8 +13,9 @@ class MyComponent extends Component {
         return (
             <div>
                 <div>
-                    Counter
-                <button onClick={()=>{console.log(this.props)}}>TEST BUTTON</button>
+                    Counter: {/*newStore.subscribe(()=>newStore.getState())*/}
+                <button onClick={()=>{console.log(newStore.getState())}}>newStore.getState() console.log:</button>
+                <button onClick={()=>newStore.dispatch({type: 'INCREMENT'})}>newStore</button>
                 </div>
                 <hr />
                 <h5>items:</h5>

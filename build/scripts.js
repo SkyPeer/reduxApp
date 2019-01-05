@@ -99,6 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions */ "./app/actions.js");
+/* harmony import */ var _newStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./newStore */ "./app/newStore.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -116,6 +117,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -141,13 +143,17 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Counter", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          console.log(_this.props);
+          console.log(_newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState());
         }
-      }, "TEST BUTTON")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "items:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
+      }, "newStore.getState() console.log:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch({
+            type: 'INCREMENT'
+          });
+        }
+      }, "newStore")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "items:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: item.id
         }, item.label);
@@ -223,6 +229,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./app/store.js");
 /* harmony import */ var _MyComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MyComponent */ "./app/MyComponent.js");
+/* harmony import */ var _newStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./newStore */ "./app/newStore.js");
+
 
 
 
@@ -233,6 +241,68 @@ var store = Object(_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); // You can
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MyComponent__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('root'));
+
+/***/ }),
+
+/***/ "./app/newStore.js":
+/*!*************************!*\
+  !*** ./app/newStore.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+/*function reduxState(reducer, initialState) {
+    let currentReducer = reducer;
+    let currentState = initialState;
+    let listener = () => {};
+
+    return {
+        dispatch(action) {
+            currentState = currentReducer(currentState, action);
+            listener();
+            return action;
+        },
+        subscribe(newListener) {
+            listener = newListener;
+        },
+        getState() {
+            return currentState;
+        }
+    };
+}*/
+//reducers
+
+function reduxState() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+
+    case 'DECREMENT':
+      return state - 1;
+
+    default:
+      return state;
+  }
+}
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reduxState);
+store.subscribe(function () {
+  return console.log('newStore subscriber:  ', store.getState());
+}); // actions
+
+store.dispatch({
+  type: 'INCREMENT'
+}); //store.dispatch({ type: 'INCREMENT' });
+//store.dispatch({ type: 'DECREMENT' });
+
+/* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
 
