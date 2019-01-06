@@ -110,13 +110,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -129,9 +131,29 @@ function (_Component) {
   _inherits(MyComponent, _Component);
 
   function MyComponent() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, MyComponent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MyComponent).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MyComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      counter: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateStateFromReduxNewStore", function () {
+      _this.setState({
+        counter: _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState()
+      });
+    });
+
+    return _this;
   }
 
   _createClass(MyComponent, [{
@@ -139,13 +161,19 @@ function (_Component) {
     value: function componentDidMount() {
       console.log(this.props);
       this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
+      this.unsubscribeStore = _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].subscribe(this.updateStateFromReduxNewStore);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.unsubscribeStore();
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.state.counter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          console.log(_newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState());
+          console.log('console.log(newStore.getState()) ', _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState());
         }
       }, "newStore.getState() console.log:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -153,7 +181,13 @@ function (_Component) {
             type: 'INCREMENT'
           });
         }
-      }, "newStore")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "items:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
+      }, " + "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch({
+            type: 'DECREMENT'
+          });
+        }
+      }, " - ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "items:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: item.id
         }, item.label);
@@ -296,10 +330,8 @@ var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reduxState
 store.subscribe(function () {
   return console.log('newStore subscriber:  ', store.getState());
 }); // actions
-
-store.dispatch({
-  type: 'INCREMENT'
-}); //store.dispatch({ type: 'INCREMENT' });
+//store.dispatch({ type: 'INCREMENT' });
+//store.dispatch({ type: 'INCREMENT' });
 //store.dispatch({ type: 'DECREMENT' });
 
 /* harmony default export */ __webpack_exports__["default"] = (store);

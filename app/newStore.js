@@ -48,7 +48,7 @@ store.subscribe(() =>
 );
 
 // actions
-store.dispatch({ type: 'INCREMENT' });
+//store.dispatch({ type: 'INCREMENT' });
 //store.dispatch({ type: 'INCREMENT' });
 //store.dispatch({ type: 'DECREMENT' });
 

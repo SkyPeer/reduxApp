@@ -4,18 +4,37 @@ import { getDataAction } from './actions';
 import newStore from './newStore'
 
 class MyComponent extends Component {
+    state = {
+        counter: 0,
+    };
+
+
     componentDidMount() {
         console.log(this.props);
         this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
+        this.unsubscribeStore = newStore.subscribe(this.updateStateFromReduxNewStore);
     }
+
+    componentWillUnmount(){
+        this.unsubscribeStore();
+    }
+
+    updateStateFromReduxNewStore = () => {
+        this.setState({ counter: newStore.getState() });
+
+    };
+
+
 
     render() {
         return (
             <div>
                 <div>
-                    Counter: {/*newStore.subscribe(()=>newStore.getState())*/}
-                <button onClick={()=>{console.log(newStore.getState())}}>newStore.getState() console.log:</button>
-                <button onClick={()=>newStore.dispatch({type: 'INCREMENT'})}>newStore</button>
+                    Counter: <b>{this.state.counter}</b><br />
+                    <button onClick={()=>{console.log('console.log(newStore.getState()) ', newStore.getState())}}>newStore.getState() console.log:</button>
+                    <button onClick={()=>newStore.dispatch({type: 'INCREMENT'})}> + </button>
+                    <button onClick={()=>newStore.dispatch({type: 'DECREMENT'})}> - </button>
+
                 </div>
                 <hr />
                 <h5>items:</h5>
