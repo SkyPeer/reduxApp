@@ -150,14 +150,14 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "increment", function () {
-      _this.setState({
-        count: _this.state.count + 1
+      _this.props.dispatch({
+        type: 'INCREMENT'
       });
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "decrement", function () {
-      _this.setState({
-        count: _this.state.count - 1
+      _this.props.dispatch({
+        type: 'DECREMENT'
       });
     });
 
@@ -169,7 +169,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ReduxCounter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.decrement
-      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.count), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.count), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.increment
       }, "+")));
     }
@@ -203,11 +203,13 @@ function reducer() {
 
   switch (action.type) {
     case 'INCREMENT':
+      console.log('Counter component INCREMENT');
       return {
         count: state.count + 1
       };
 
     case 'DECREMENT':
+      console.log('Counter component DECREMENT');
       return {
         count: state.count - 1
       };
@@ -241,6 +243,9 @@ function brokenReducer() {
 }
 
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer);
+store.subscribe(function () {
+  return console.log('STORE CHANGED:  ', store.getState());
+});
 /* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
