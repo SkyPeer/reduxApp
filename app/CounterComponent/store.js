@@ -16,6 +16,13 @@ function reducer(state = initialState, action) {
             return {
                 count: state.count - 1
             };
+        case 'COUNTERVALUE':
+            console.log('Counter component COUNTERVALUE');
+          //  console.log('action.value ', action.value);
+        return{
+          count: state.count = action.value
+        };
+
         default:
             return state;
     }

@@ -31,6 +31,11 @@ body{
     margin: 0 auto;
 }
 
+#fetch {
+    width: 1024px;
+    margin: 0 auto;
+}
+
 .logo{
     font-family: LibreBarcode128TextRegular, Arial, sans-serif;
     float: left;
