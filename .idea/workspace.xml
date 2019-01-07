@@ -4,8 +4,6 @@
     <list default="true" id="ec1744ae-1491-4c2d-98ba-d00a6365193b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Fetch/Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Fetch/Component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Fetch/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Fetch/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,8 +21,8 @@
       <file leaf-file-name="Component.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Fetch/Component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
+            <state relative-caret-position="182">
+              <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -35,8 +33,8 @@
       <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Fetch/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="442">
+              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -161,8 +159,8 @@
         <option value="$PROJECT_DIR$/app/CounterComponentDispatchToProps/Component.js" />
         <option value="$PROJECT_DIR$/app/CounterComponentDispatchToProps/store.js" />
         <option value="$PROJECT_DIR$/app/actions.js" />
-        <option value="$PROJECT_DIR$/app/Fetch/store.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
+        <option value="$PROJECT_DIR$/app/Fetch/store.js" />
         <option value="$PROJECT_DIR$/app/Fetch/Component.js" />
       </list>
     </option>
@@ -304,12 +302,12 @@
       <workItem from="1546603070992" duration="12570000" />
       <workItem from="1546685877208" duration="12759000" />
       <workItem from="1546784253915" duration="24114000" />
-      <workItem from="1546872102019" duration="7433000" />
+      <workItem from="1546872102019" duration="8891000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58102000" />
+    <option name="totallyTimeSpent" value="59560000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,13 +322,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49188313" visible="true" weight="0.18124342" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49183896" visible="true" weight="0.18124342" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49841937" weight="0.3297062" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50105375" side_tool="true" weight="0.3297062" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49894625" visible="true" weight="0.3297062" />
-      <window_info id="npm" order="2" sideWeight="0.5081169" side_tool="true" visible="true" weight="0.18124342" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49894625" weight="0.3297062" />
+      <window_info id="npm" order="2" sideWeight="0.50816107" side_tool="true" visible="true" weight="0.18124342" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49947312" weight="0.3297062" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49947312" weight="0.3297062" />
@@ -731,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Fetch/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/MyComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -748,10 +739,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Fetch/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Fetch/Component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
+        <state relative-caret-position="182">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

@@ -569,15 +569,15 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 function mapStateToProps(state) {
-  return {
-    items: state.items
-  };
+  return _objectSpread({}, state);
 }
 
 var ReduxFetch =
@@ -632,7 +632,7 @@ function (_Component) {
         onClick: function onClick() {
           return _this2.getDataAction();
         }
-      }, "---TEST---"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "TOTAL: ", this.props.items.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.map(function (item) {
+      }, "---TEST---"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "TOTAL: ", this.props.total)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.items.slice(0, 10).map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: item.id
         }, item.label);
@@ -659,6 +659,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
 var initialState = {
+  total: 0,
   items: []
 };
 
@@ -670,8 +671,10 @@ function reducer() {
     case 'CHANGESTORE':
       //console.log('Counter component INCREMENT');
       state.items = action.items;
+      state.total = action.items.length;
       return {
-        items: state.items
+        items: state.items,
+        total: state.total
       };
 
     default:

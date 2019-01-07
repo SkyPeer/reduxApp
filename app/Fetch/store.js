@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
+    total: 0,
     items: []
 };
 
@@ -11,9 +12,10 @@ function reducer(state = initialState, action) {
             //console.log('Counter component INCREMENT');
 
             state.items = action.items;
-
+            state.total = action.items.length;
             return {
-                items: state.items
+                items: state.items,
+                total: state.total
             };
 
         default:

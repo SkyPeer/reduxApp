@@ -3,7 +3,9 @@ import {connect} from "react-redux";
 
 function mapStateToProps(state) {
     return {
-        items: state.items
+        /*items: state.items,
+        total: state.total*/
+        ...state
     };
 }
 
@@ -33,9 +35,9 @@ class ReduxFetch extends Component {
                 <h2>ReduxFetch</h2>
                 <button onClick={()=>this.getDataAction()}>---TEST---</button>
                  <div>
-                     <span><b>TOTAL: {this.props.items.length}</b></span>
+                     <span><b>TOTAL: {this.props.total}</b></span>
                      <ul>
-                         {this.props.items.map((item) => (
+                         {this.props.items.slice(0,10).map((item) => (
                              <li key={item.id}>
                                  {item.label}
                              </li>
