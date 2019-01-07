@@ -35,6 +35,11 @@ body{
     width: 1024px;
     margin: 0 auto;
 }
+#counterComponentDispProps {
+    width: 1024px;
+    margin: 0 auto;
+}
+
 
 .logo{
     font-family: LibreBarcode128TextRegular, Arial, sans-serif;

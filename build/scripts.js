@@ -99,7 +99,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions */ "./app/CounterComponent/actions.js");
-/* harmony import */ var _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mapDispatchToProps */ "./app/CounterComponent/mapDispatchToProps.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -124,20 +123,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 function mapStateToProps(state) {
   return {
     count: state.count
   };
 }
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    countValAct: function countValAct() {
-      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__["counterValueAction"])());
-    }
-  };
-};
 
 var CounterComponent =
 /*#__PURE__*/
@@ -156,10 +146,6 @@ function (_Component) {
     }
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CounterComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      count: 0
-    });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "increment", function () {
       _this.props.dispatch({
@@ -200,26 +186,22 @@ function (_Component) {
         onClick: function onClick() {
           return _this2.countervalue(777);
         }
-      }, " = 777"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, " = 777 countervalue(arg)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return _this2.countValue(111);
         }
-      }, " = 111"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.props.countValAct
-      }, " action test"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, " = 111.call(this, arg)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return console.log(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__["counterValueAction"]);
+          return console.log();
         }
-      }, " TEST ")));
+      }, " TEST ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
     }
   }]);
 
   return CounterComponent;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps
-/*, mapDispatchToProps*/
-)(CounterComponent));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(CounterComponent));
 
 /***/ }),
 
@@ -242,26 +224,6 @@ var actions = {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
-
-/***/ }),
-
-/***/ "./app/CounterComponent/mapDispatchToProps.js":
-/*!****************************************************!*\
-  !*** ./app/CounterComponent/mapDispatchToProps.js ***!
-  \****************************************************/
-/*! exports provided: counterValueAction */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "counterValueAction", function() { return counterValueAction; });
-function counterValueAction() {
-  console.log(' ----- counterValueAction');
-  return {
-    type: 'COUNTERVALUE',
-    value: 222
-  };
-}
 
 /***/ }),
 
@@ -335,6 +297,243 @@ function brokenReducer() {
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer);
 store.subscribe(function () {
   return console.log('STORE CHANGED:  ', store.getState());
+});
+/* harmony default export */ __webpack_exports__["default"] = (store);
+
+/***/ }),
+
+/***/ "./app/CounterComponentDispatchToProps/Component.js":
+/*!**********************************************************!*\
+  !*** ./app/CounterComponentDispatchToProps/Component.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions */ "./app/CounterComponentDispatchToProps/actions.js");
+/* harmony import */ var _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mapDispatchToProps */ "./app/CounterComponentDispatchToProps/mapDispatchToProps.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    decrement: function decrement() {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__["decrement"])());
+    },
+    increment: function increment() {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__["increment"])());
+    },
+    counterValue: function counterValue(arg) {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_3__["counterValue"])(arg));
+    }
+  };
+};
+
+var CounterComponentDispToProps =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(CounterComponentDispToProps, _Component);
+
+  function CounterComponentDispToProps() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, CounterComponentDispToProps);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CounterComponentDispToProps)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "increment", function () {
+      _this.props.dispatch({
+        type: 'INCREMENT'
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "decrement", function () {
+      _this.props.dispatch({
+        type: 'DECREMENT'
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "countervalue", function (arg) {
+      _this.props.dispatch({
+        type: 'COUNTERVALUE',
+        value: arg
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "countValue", function (arg) {
+      return _actions__WEBPACK_IMPORTED_MODULE_2__["default"].counterValue.call(_assertThisInitialized(_assertThisInitialized(_this)), arg);
+    });
+
+    return _this;
+  }
+
+  _createClass(CounterComponentDispToProps, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ReduxCounter(With mapDispatchToProps)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.decrement
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, ' ---> ' + this.props.count + ' <--- '), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.increment
+      }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.counterValue(777);
+        }
+      }, " = 777"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: true,
+        onClick: function onClick() {
+          return console.log();
+        }
+      }, " TEST ")));
+    }
+  }]);
+
+  return CounterComponentDispToProps;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(CounterComponentDispToProps));
+
+/***/ }),
+
+/***/ "./app/CounterComponentDispatchToProps/actions.js":
+/*!********************************************************!*\
+  !*** ./app/CounterComponentDispatchToProps/actions.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  countervalue: function countervalue(arg) {
+    console.log('actionThis:', this.props, 'arg = ', arg);
+    this.props.dispatch({
+      type: 'COUNTERVALUE',
+      value: arg
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./app/CounterComponentDispatchToProps/mapDispatchToProps.js":
+/*!*******************************************************************!*\
+  !*** ./app/CounterComponentDispatchToProps/mapDispatchToProps.js ***!
+  \*******************************************************************/
+/*! exports provided: increment, decrement, counterValue */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "increment", function() { return increment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decrement", function() { return decrement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "counterValue", function() { return counterValue; });
+function increment() {
+  return {
+    type: 'INCREMENT'
+  };
+}
+function decrement() {
+  return {
+    type: 'DECREMENT'
+  };
+}
+function counterValue(arg) {
+  return {
+    type: 'COUNTERVALUE',
+    value: arg
+  };
+}
+
+/***/ }),
+
+/***/ "./app/CounterComponentDispatchToProps/store.js":
+/*!******************************************************!*\
+  !*** ./app/CounterComponentDispatchToProps/store.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+var initialState = {
+  count: 0
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'INCREMENT':
+      //console.log('Counter component INCREMENT');
+      return {
+        count: state.count + 1
+      };
+
+    case 'DECREMENT':
+      // console.log('Counter component DECREMENT');
+      return {
+        count: state.count - 1
+      };
+
+    case 'COUNTERVALUE':
+      // console.log('Counter component COUNTERVALUE');
+      //  console.log('action.value ', action.value);
+      return {
+        count: state.count = action.value
+      };
+
+    default:
+      return state;
+  }
+}
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer);
+store.subscribe(function () {
+  return console.log('STORE CHANGED (of componentWith: mapDispatchToProps):  ', store.getState());
 });
 /* harmony default export */ __webpack_exports__["default"] = (store);
 
@@ -582,7 +781,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _newStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./newStore */ "./app/newStore.js");
 /* harmony import */ var _CounterComponent_Component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CounterComponent/Component */ "./app/CounterComponent/Component.js");
 /* harmony import */ var _CounterComponent_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CounterComponent/store */ "./app/CounterComponent/store.js");
-/* harmony import */ var _Fetch_Component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Fetch/Component */ "./app/Fetch/Component.js");
+/* harmony import */ var _CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CounterComponentDispatchToProps/Component */ "./app/CounterComponentDispatchToProps/Component.js");
+/* harmony import */ var _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CounterComponentDispatchToProps/store */ "./app/CounterComponentDispatchToProps/store.js");
+/* harmony import */ var _Fetch_Component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Fetch/Component */ "./app/Fetch/Component.js");
+
+
 
 
 
@@ -602,7 +805,10 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
   store: _CounterComponent_store__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponent_Component__WEBPACK_IMPORTED_MODULE_6__["default"], null)), document.getElementById('counterComponent'));
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Fetch_Component__WEBPACK_IMPORTED_MODULE_8__["default"], null), document.getElementById('fetch'));
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
+  store: _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_8__["default"], null)), document.getElementById('counterComponentDispProps'));
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Fetch_Component__WEBPACK_IMPORTED_MODULE_10__["default"], null), document.getElementById('fetch'));
 
 /***/ }),
 

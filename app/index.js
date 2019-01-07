@@ -9,6 +9,9 @@ import './newStore'
 import CounterComponent from './CounterComponent/Component'
 import CounterStore from './CounterComponent/store'
 
+import CounterComponentDispToProps from './CounterComponentDispatchToProps/Component'
+import CounterDispToPropsStore from './CounterComponentDispatchToProps/store'
+
 import ReduxFetch from './Fetch/Component'
 
 const store = configureStore(); // You can also pass in an initialState here
@@ -23,12 +26,21 @@ render(
     document.getElementById('root')
 );
 
+
 render(
     <Provider store={CounterStore}>
         <CounterComponent/>
     </Provider>,
-document.getElementById('counterComponent')
+    document.getElementById('counterComponent')
 );
+
+render(
+    <Provider store={CounterDispToPropsStore}>
+        <CounterComponentDispToProps/>
+    </Provider>,
+    document.getElementById('counterComponentDispProps')
+);
+
 
 render(
     <ReduxFetch/>,

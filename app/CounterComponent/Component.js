@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import actions from './actions'
-import { counterValueAction } from './mapDispatchToProps'
 
 
 function mapStateToProps(state) {
@@ -10,16 +9,9 @@ function mapStateToProps(state) {
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        countValAct: () => dispatch(counterValueAction())
-    };
-};
-
 
 
 class CounterComponent extends Component {
-    state = { count: 0 };
 
     /*
     //just function
@@ -61,15 +53,15 @@ class CounterComponent extends Component {
                     <button onClick={this.decrement}>-</button>
                         <span>{' ---> ' + this.props.count + ' <--- '}</span>
                     <button onClick={this.increment}>+</button>
-                    <button onClick={()=>this.countervalue(777)}> = 777</button>
-                    <button onClick={()=>this.countValue(111)}> = 111</button>
-                    <button onClick={this.props.countValAct}> action test</button>
-                    <button onClick={()=>console.log(counterValueAction)}> TEST </button>
+                    <button onClick={()=>this.countervalue(777)}> = 777 countervalue(arg)</button>
+                    <button onClick={()=>this.countValue(111)}> = 111.call(this, arg)</button>
+                    <button onClick={()=>console.log(/*counterValueAction*/)}> TEST </button>
 
                 </div>
+                <hr />
             </div>
         )
     }
 }
 
-export default connect(mapStateToProps/*, mapDispatchToProps*/)(CounterComponent);
+export default connect(mapStateToProps)(CounterComponent);
