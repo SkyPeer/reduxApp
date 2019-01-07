@@ -13,6 +13,7 @@ import CounterComponentDispToProps from './CounterComponentDispatchToProps/Compo
 import CounterDispToPropsStore from './CounterComponentDispatchToProps/store'
 
 import ReduxFetch from './Fetch/Component'
+import FetchStore from './Fetch/store'
 
 const store = configureStore(); // You can also pass in an initialState here
 //const counterStore = CounterStore();
@@ -43,6 +44,9 @@ render(
 
 
 render(
-    <ReduxFetch/>,
+    <Provider store={FetchStore}>
+        <ReduxFetch/>
+    </Provider>,
+
     document.getElementById('fetch')
 );

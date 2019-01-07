@@ -7,11 +7,8 @@ export function itemsFetchDataSuccess(items) {
 
 export function getDataAction(url) {
     return (dispatch) => {
-
         fetch(url)
-            .then((response) => {
-                return response;
-            })
+            .then((response) => {return response})
             .then((response) => response.json())
             .then((items) => dispatch(itemsFetchDataSuccess(items)))
     };
