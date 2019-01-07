@@ -86,6 +86,165 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app/CounterComponent/Component.js":
+/*!*******************************************!*\
+  !*** ./app/CounterComponent/Component.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+
+var CounterComponent =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(CounterComponent, _Component);
+
+  function CounterComponent() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, CounterComponent);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CounterComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      count: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "increment", function () {
+      _this.setState({
+        count: _this.state.count + 1
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "decrement", function () {
+      _this.setState({
+        count: _this.state.count - 1
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(CounterComponent, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ReduxCounter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.decrement
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.count), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.increment
+      }, "+")));
+    }
+  }]);
+
+  return CounterComponent;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(CounterComponent));
+
+/***/ }),
+
+/***/ "./app/CounterComponent/store.js":
+/*!***************************************!*\
+  !*** ./app/CounterComponent/store.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+var initialState = {
+  count: 0
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        count: state.count + 1
+      };
+
+    case 'DECREMENT':
+      return {
+        count: state.count - 1
+      };
+
+    default:
+      return state;
+  }
+}
+/*ТАК не делаем!*/
+
+
+function brokenReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'INCREMENT':
+      // NO! BAD: this is changing state!
+      state.count++;
+      return state;
+
+    case 'DECREMENT':
+      // NO! BAD: this is changing state too!
+      state.count--;
+      return state;
+
+    default:
+      // this is fine.
+      return state;
+  }
+}
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer);
+/* harmony default export */ __webpack_exports__["default"] = (store);
+
+/***/ }),
+
 /***/ "./app/MyComponent.js":
 /*!****************************!*\
   !*** ./app/MyComponent.js ***!
@@ -147,10 +306,14 @@ function (_Component) {
       counter: 0
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateStateFromReduxNewStore", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateStateFromReduxNewStore", function () //функция подписки на изменения stor'a
+    {
       _this.setState({
-        counter: _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState()
+        counter: _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState().counter
       });
+
+      console.log('updateStateFromReduxNewStore :', _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState().counter); //this.setState({ counter: newStore.getState() });
+      //return newStore.getState().counter;
     });
 
     return _this;
@@ -159,7 +322,7 @@ function (_Component) {
   _createClass(MyComponent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log(this.props);
+      // console.log(this.props);
       this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
       this.unsubscribeStore = _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].subscribe(this.updateStateFromReduxNewStore);
     }
@@ -171,9 +334,11 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.state.counter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), "Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.state.counter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          console.log('console.log(newStore.getState()) ', _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState());
+          console.log('console.log(newStore.getState()) ', _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState(), '|', _this2.updateStateFromReduxNewStore());
         }
       }, "newStore.getState() console.log:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
@@ -264,6 +429,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./app/store.js");
 /* harmony import */ var _MyComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MyComponent */ "./app/MyComponent.js");
 /* harmony import */ var _newStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./newStore */ "./app/newStore.js");
+/* harmony import */ var _CounterComponent_Component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CounterComponent/Component */ "./app/CounterComponent/Component.js");
+/* harmony import */ var _CounterComponent_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CounterComponent/store */ "./app/CounterComponent/store.js");
+
+
 
 
 
@@ -271,10 +440,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var store = Object(_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); // You can also pass in an initialState here
+//const counterStore = CounterStore();
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MyComponent__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('root'));
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
+  store: _CounterComponent_store__WEBPACK_IMPORTED_MODULE_7__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponent_Component__WEBPACK_IMPORTED_MODULE_6__["default"], null)), document.getElementById('counterComponent'));
 
 /***/ }),
 
@@ -311,15 +484,24 @@ __webpack_require__.r(__webpack_exports__);
 //reducers
 
 function reduxState() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    counter: 0,
+    a: 2
+  };
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1;
+      console.log('INCREMENT action'); //console.log(state);
+
+      state.counter++;
+      return state;
 
     case 'DECREMENT':
-      return state - 1;
+      console.log('DECREMENT action'); //console.log(state);
+
+      state.counter--;
+      return state;
 
     default:
       return state;
@@ -327,8 +509,7 @@ function reduxState() {
 }
 
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reduxState);
-store.subscribe(function () {
-  return console.log('newStore subscriber:  ', store.getState());
+store.subscribe(function () {//console.log('newStore subscriber:  ', store.getState(), /*'counter = ', counter.counter*/);
 }); // actions
 //store.dispatch({ type: 'INCREMENT' });
 //store.dispatch({ type: 'INCREMENT' });

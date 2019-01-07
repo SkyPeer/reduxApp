@@ -24,17 +24,24 @@ import { createStore } from 'redux';
 
 //reducers
 function reduxState(
-    state = 0,
-
-    action) {
+    state = {
+        counter: 0,
+        a: 2,
+    }, action) {
 
     switch (action.type) {
 
         case 'INCREMENT':
-            return state + 1;
+            console.log('INCREMENT action');
+            //console.log(state);
+            state.counter++;
+            return state;
 
         case 'DECREMENT':
-            return state - 1;
+            console.log('DECREMENT action');
+            //console.log(state);
+            state.counter--;
+            return state;
 
         default:
             return state;
@@ -43,8 +50,11 @@ function reduxState(
 
 let store = createStore(reduxState);
 
-store.subscribe(() =>
-    console.log('newStore subscriber:  ', store.getState())
+store.subscribe(
+    () => {
+
+        //console.log('newStore subscriber:  ', store.getState(), /*'counter = ', counter.counter*/);
+    }
 );
 
 // actions
