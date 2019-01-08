@@ -43,7 +43,7 @@ class MyComponent extends Component {
                 <h5>items:</h5>
 
                 <ul>
-                    {this.props.items.map((item) => (
+                    {this.props.items.slice(0,10).map((item) => (
                         <li key={item.id}>
                             {item.label}
                         </li>

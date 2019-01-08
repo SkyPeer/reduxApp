@@ -25,6 +25,6 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
-store.subscribe(() => console.log('FETCH STORE CHANGED', store.getState()));
+//store.subscribe(() => console.log('FETCH STORE CHANGED', store.getState()));
 
 export default store;

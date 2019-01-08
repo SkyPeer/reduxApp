@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import actions from './actions'
 import {decrement, increment, counterValue} from "./mapDispatchToProps";
-
-
 
 
 function mapStateToProps(state) {
@@ -24,23 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 
 
 class CounterComponentDispToProps extends Component {
-
-
-    //ACTIONS
-    increment = () => {
-        this.props.dispatch({ type: 'INCREMENT' });
-    };
-
-    decrement = () => {
-        this.props.dispatch({ type: 'DECREMENT' });
-    };
-
-    countervalue = (arg) => {
-      this.props.dispatch({ type: 'COUNTERVALUE', value: arg })
-    };
-
-    countValue = (arg) => actions.counterValue.call(this, arg);
-
 
     render() {
         return (
