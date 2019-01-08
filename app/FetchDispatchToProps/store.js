@@ -10,15 +10,15 @@ const initialState = {
 function reducer(state = initialState, action) {
     switch(action.type) {
         case 'CHANGESTORE':
-
             console.log('CHANGESTORE REDUCE arg:', action.arg);
-
             state.items = action.items;
             state.total = action.items.length;
             return {
                 items: state.items,
                 total: state.total
             };
+
+
 
         default:
             return state;
