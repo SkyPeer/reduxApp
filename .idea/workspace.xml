@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec1744ae-1491-4c2d-98ba-d00a6365193b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/FetchDispatchToProps/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/FetchDispatchToProps/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/FetchDispatchToProps/Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/FetchDispatchToProps/Component.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="Component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/FetchDispatchToProps/Component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-602">
-              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="35" />
+            <state relative-caret-position="338">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -33,11 +32,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="52" column="16" lean-forward="true" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-160">
+              <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -179,8 +175,8 @@
         <option value="$PROJECT_DIR$/app/FetchDispatchToProps/providers.js" />
         <option value="$PROJECT_DIR$/app/FetchDispatchToProps/actions.js" />
         <option value="$PROJECT_DIR$/app/Fetch/store.js" />
-        <option value="$PROJECT_DIR$/app/FetchDispatchToProps/Component.js" />
         <option value="$PROJECT_DIR$/app/FetchDispatchToProps/store.js" />
+        <option value="$PROJECT_DIR$/app/FetchDispatchToProps/Component.js" />
       </list>
     </option>
   </component>
@@ -337,12 +333,12 @@
       <workItem from="1546685877208" duration="12759000" />
       <workItem from="1546784253915" duration="24114000" />
       <workItem from="1546872102019" duration="8891000" />
-      <workItem from="1546943986037" duration="16416000" />
+      <workItem from="1546943986037" duration="19688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75976000" />
+    <option name="totallyTimeSpent" value="79248000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -691,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/actions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -766,10 +755,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/FetchDispatchToProps/Component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-602">
-          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="35" />
+        <state relative-caret-position="338">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -778,11 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="52" column="16" lean-forward="true" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-160">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>

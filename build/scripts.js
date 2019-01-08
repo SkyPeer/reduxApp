@@ -696,6 +696,7 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchData('123');
+      console.log('this.props.items = ', this.props.items);
     }
     /*changeDataInStore = (items) => {
         this.props.dispatch({ type: 'CHANGESTORE', items: items });

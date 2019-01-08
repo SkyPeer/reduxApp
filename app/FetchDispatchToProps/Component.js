@@ -23,6 +23,7 @@ class ReduxFetchDispatchToProps extends Component {
 
     componentDidMount(){
         this.props.fetchData('123')
+        console.log('this.props.items = ', this.props.items)
     }
 
     /*changeDataInStore = (items) => {
