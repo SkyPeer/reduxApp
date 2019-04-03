@@ -15,6 +15,8 @@ class ReduxFetch extends Component {
         this.getDataAction()
     }
 
+
+    // action
     changeDataInStore = (items) => {
         this.props.dispatch({ type: 'CHANGESTORE', items: items });
     };

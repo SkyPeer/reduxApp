@@ -563,7 +563,8 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getDataAction();
-    }
+    } // action
+
   }, {
     key: "render",
     value: function render() {
