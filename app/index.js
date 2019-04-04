@@ -2,6 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import newStore from './newRedux/store'
+import NewReduxComponent from './newRedux/Component'
+
+
 import configureStore from './store';
 import MyComponent from './MyComponent';
 import './newStore'
@@ -24,7 +28,19 @@ const store = configureStore(); // You can also pass in an initialState here
 //console.log(MyComponent);
 
 
+// render(
+//     <Provider store={newStore}>
+//         <newReduxComponent/>
+//     </Provider>,
+//     document.getElementById('newRedux')
+// );
 
+render(
+    <Provider store={newStore}>
+        <NewReduxComponent/>
+    </Provider>,
+    document.getElementById('newRedux')
+);
 
 render(
     <Provider store={CounterStore}>

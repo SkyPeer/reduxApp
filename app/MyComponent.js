@@ -34,7 +34,7 @@ class MyComponent extends Component {
             <div>
                 <div>
                     <hr />
-                    Counter: <b>{this.state.counter}</b><br />
+                    MyComponent - Counter: <b>{this.state.counter}</b><br />
                     <button onClick={()=>{console.log('console.log(newStore.getState()) ', newStore.getState(), '|', this.updateStateFromReduxNewStore())}}>newStore.getState() console.log:</button>
                     <button onClick={()=>newStore.dispatch({type: 'INCREMENT'})}> + </button>
                     <button onClick={()=>newStore.dispatch({type: 'DECREMENT'})}> - </button>

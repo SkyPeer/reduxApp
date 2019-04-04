@@ -953,7 +953,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), "Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.state.counter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), "MyComponent - Counter: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, this.state.counter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           console.log('console.log(newStore.getState()) ', _newStore__WEBPACK_IMPORTED_MODULE_3__["default"].getState(), '|', _this2.updateStateFromReduxNewStore());
         }
@@ -1043,17 +1043,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./app/store.js");
-/* harmony import */ var _MyComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MyComponent */ "./app/MyComponent.js");
-/* harmony import */ var _newStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./newStore */ "./app/newStore.js");
-/* harmony import */ var _CounterComponent_Component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CounterComponent/Component */ "./app/CounterComponent/Component.js");
-/* harmony import */ var _CounterComponent_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CounterComponent/store */ "./app/CounterComponent/store.js");
-/* harmony import */ var _CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CounterComponentDispatchToProps/Component */ "./app/CounterComponentDispatchToProps/Component.js");
-/* harmony import */ var _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CounterComponentDispatchToProps/store */ "./app/CounterComponentDispatchToProps/store.js");
-/* harmony import */ var _Fetch_Component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Fetch/Component */ "./app/Fetch/Component.js");
-/* harmony import */ var _Fetch_store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Fetch/store */ "./app/Fetch/store.js");
-/* harmony import */ var _FetchDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./FetchDispatchToProps/Component */ "./app/FetchDispatchToProps/Component.js");
-/* harmony import */ var _FetchDispatchToProps_store__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./FetchDispatchToProps/store */ "./app/FetchDispatchToProps/store.js");
+/* harmony import */ var _newRedux_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./newRedux/store */ "./app/newRedux/store.js");
+/* harmony import */ var _newRedux_Component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./newRedux/Component */ "./app/newRedux/Component.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store */ "./app/store.js");
+/* harmony import */ var _MyComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MyComponent */ "./app/MyComponent.js");
+/* harmony import */ var _newStore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./newStore */ "./app/newStore.js");
+/* harmony import */ var _CounterComponent_Component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CounterComponent/Component */ "./app/CounterComponent/Component.js");
+/* harmony import */ var _CounterComponent_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CounterComponent/store */ "./app/CounterComponent/store.js");
+/* harmony import */ var _CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CounterComponentDispatchToProps/Component */ "./app/CounterComponentDispatchToProps/Component.js");
+/* harmony import */ var _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CounterComponentDispatchToProps/store */ "./app/CounterComponentDispatchToProps/store.js");
+/* harmony import */ var _Fetch_Component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Fetch/Component */ "./app/Fetch/Component.js");
+/* harmony import */ var _Fetch_store__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Fetch/store */ "./app/Fetch/store.js");
+/* harmony import */ var _FetchDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./FetchDispatchToProps/Component */ "./app/FetchDispatchToProps/Component.js");
+/* harmony import */ var _FetchDispatchToProps_store__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./FetchDispatchToProps/store */ "./app/FetchDispatchToProps/store.js");
 
 
 
@@ -1068,25 +1070,269 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var store = Object(_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); // You can also pass in an initialState here
+
+
+var store = Object(_store__WEBPACK_IMPORTED_MODULE_5__["default"])(); // You can also pass in an initialState here
 //const counterStore = CounterStore();
 //console.log(MyComponent);
+// render(
+//     <Provider store={newStore}>
+//         <newReduxComponent/>
+//     </Provider>,
+//     document.getElementById('newRedux')
+// );
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _CounterComponent_store__WEBPACK_IMPORTED_MODULE_7__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponent_Component__WEBPACK_IMPORTED_MODULE_6__["default"], null)), document.getElementById('counterComponent'));
+  store: _newRedux_store__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_newRedux_Component__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('newRedux'));
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_9__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_8__["default"], null)), document.getElementById('counterComponentDispProps'));
+  store: _CounterComponent_store__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponent_Component__WEBPACK_IMPORTED_MODULE_8__["default"], null)), document.getElementById('counterComponent'));
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _Fetch_store__WEBPACK_IMPORTED_MODULE_11__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Fetch_Component__WEBPACK_IMPORTED_MODULE_10__["default"], null)), document.getElementById('fetch'));
+  store: _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_11__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_10__["default"], null)), document.getElementById('counterComponentDispProps'));
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _FetchDispatchToProps_store__WEBPACK_IMPORTED_MODULE_13__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FetchDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_12__["default"], null)), document.getElementById('fetchdispprops'));
+  store: _Fetch_store__WEBPACK_IMPORTED_MODULE_13__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Fetch_Component__WEBPACK_IMPORTED_MODULE_12__["default"], null)), document.getElementById('fetch'));
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
+  store: _FetchDispatchToProps_store__WEBPACK_IMPORTED_MODULE_15__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FetchDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_14__["default"], null)), document.getElementById('fetchdispprops'));
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
   store: store
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MyComponent__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('root'));
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MyComponent__WEBPACK_IMPORTED_MODULE_6__["default"], null)), document.getElementById('root'));
+
+/***/ }),
+
+/***/ "./app/newRedux/Component.js":
+/*!***********************************!*\
+  !*** ./app/newRedux/Component.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mapDispatchToProps */ "./app/newRedux/mapDispatchToProps.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+function mapStateToProps(state) {
+  return {
+    count: state.count,
+    items: state.items
+  };
+}
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    decrement: function decrement() {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_2__["decrement"])());
+    },
+    increment: function increment() {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_2__["increment"])());
+    },
+    counterValue: function counterValue(arg) {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_2__["counterValue"])(arg));
+    },
+    add: function add(value) {
+      return dispatch(Object(_mapDispatchToProps__WEBPACK_IMPORTED_MODULE_2__["add"])(value));
+    }
+  };
+};
+
+var NewRedux2019 =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NewRedux2019, _Component);
+
+  function NewRedux2019() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, NewRedux2019);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(NewRedux2019)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      text: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "changeText", function (e) {
+      console.log(e.target.value);
+
+      _this.setState({
+        text: e.target.value
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(NewRedux2019, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "NewRedux2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        value: this.state.text,
+        onChange: this.changeText
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.add(_this2.state.text);
+        }
+      }, " ADD ITEM "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return console.log(_this2.props.items);
+        }
+      }, " CONSOLE ITEMS "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "                    ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.decrement
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, ' ---> ' + this.props.count + ' <--- '), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.increment
+      }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.counterValue(777);
+        }
+      }, " = 777"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: true,
+        onClick: function onClick() {
+          return console.log();
+        }
+      }, " TEST "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)));
+    }
+  }]);
+
+  return NewRedux2019;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(NewRedux2019)); //export default NewRedux2019
+
+/***/ }),
+
+/***/ "./app/newRedux/mapDispatchToProps.js":
+/*!********************************************!*\
+  !*** ./app/newRedux/mapDispatchToProps.js ***!
+  \********************************************/
+/*! exports provided: increment, decrement, counterValue, add */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "increment", function() { return increment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decrement", function() { return decrement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "counterValue", function() { return counterValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add", function() { return add; });
+function increment() {
+  return {
+    type: 'INCREMENT'
+  };
+}
+function decrement() {
+  return {
+    type: 'DECREMENT'
+  };
+}
+function counterValue(arg) {
+  return {
+    type: 'COUNTERVALUE',
+    value: arg
+  };
+}
+function add(value) {
+  return {
+    type: 'ADD',
+    value: value
+  };
+}
+
+/***/ }),
+
+/***/ "./app/newRedux/store.js":
+/*!*******************************!*\
+  !*** ./app/newRedux/store.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+var initialState = {
+  count: 0,
+  items: ['skirsiishh']
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'INCREMENT':
+      //console.log('Counter component INCREMENT');
+      return {
+        count: state.count + 1
+      };
+
+    case 'DECREMENT':
+      // console.log('Counter component DECREMENT');
+      return {
+        count: state.count - 1
+      };
+
+    case 'COUNTERVALUE':
+      // console.log('Counter component COUNTERVALUE');
+      //  console.log('action.value ', action.value);
+      return {
+        count: state.count = action.value
+      };
+
+    case 'ADD':
+      var newArray = state.items.push(action.value);
+      console.log('state.items', state.items, '   action.value:', action.value);
+
+    /*return{
+        items: state.items = state.items.push(action.value)
+    }*/
+
+    default:
+      return state;
+  }
+}
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer);
+store.subscribe(function () {
+  return console.log('STORE CHANGED (of componentWith: mapDispatchToProps):  ', store.getState());
+});
+/* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
 
