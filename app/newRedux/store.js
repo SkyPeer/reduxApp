@@ -18,13 +18,13 @@ function reducer(state = initialState, action) {
                 count: state.count - 1
             };
         case 'COUNTERVALUE':
-           // console.log('Counter component COUNTERVALUE');
+          // console.log('Counter component COUNTERVALUE');
           //  console.log('action.value ', action.value);
         return{
           count: state.count = action.value
         };
         case 'ADD':
-        let newArray = state.items.push(action.value)    
+        state.items.push(action.value)    
         console.log('state.items', state.items, '   action.value:', action.value)
         /*return{
             items: state.items = state.items.push(action.value)
