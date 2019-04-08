@@ -862,6 +862,253 @@ store.subscribe(function () {
 
 /***/ }),
 
+/***/ "./app/FetchRedux2019/Component.js":
+/*!*****************************************!*\
+  !*** ./app/FetchRedux2019/Component.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions */ "./app/FetchRedux2019/actions.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+ //import {getDataProvider, getData} from "./providers";
+
+
+
+function mapStateToProps(state) {
+  return _objectSpread({}, state);
+}
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchData: function fetchData(arg) {
+      return dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_2__["getDataAction"])(arg));
+    }
+  };
+};
+
+var ReduxFetch2019 =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ReduxFetch2019, _Component);
+
+  function ReduxFetch2019() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ReduxFetch2019);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ReduxFetch2019)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      items: [] // componentDidMount(){
+      //     // this.props.fetchData('123')
+      //     // console.log('this.props.items = ', this.props.items)
+      // }
+
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getData", function (page) {
+      fetch('http://5826ed963900d612000138bd.mockapi.io/items').then(function (response) {
+        return response;
+      }).then(function (response) {
+        return response.json();
+      }).then(function (items) {
+        return _this.dataHandler(items, page);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "dataHandler", function (array, page) {
+      console.log("dataHandler", array.length);
+      var a = 5;
+      page == null ? a = 5 : a = page;
+      var newArray = array.slice(0, a);
+      newArray.push({
+        id: null,
+        label: 'more: ' + (array.length - 5)
+      });
+
+      _this.setState({
+        items: newArray
+      }, function () {
+        return console.log(_this.state.items);
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(ReduxFetch2019, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      console.log("componentDidUpdate");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ReduxFetch 2019"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "TOTAL: ", this.props.total)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this2.getData();
+        }
+      }, " TEST PROVIDER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.items.map(function (item, id) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: item.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: function onClick() {
+            if (item.id == null) {
+              _this2.getData(id + 5);
+            } else {
+              alert('IIITEM' + item);
+            }
+          }
+        }, item.label + item.id));
+      }))));
+    }
+  }]);
+
+  return ReduxFetch2019;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(ReduxFetch2019));
+
+/***/ }),
+
+/***/ "./app/FetchRedux2019/actions.js":
+/*!***************************************!*\
+  !*** ./app/FetchRedux2019/actions.js ***!
+  \***************************************/
+/*! exports provided: changeDataInStoreAction, getDataAction */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeDataInStoreAction", function() { return changeDataInStoreAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDataAction", function() { return getDataAction; });
+/* harmony import */ var _providers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./providers */ "./app/FetchRedux2019/providers.js");
+
+function changeDataInStoreAction(items, arg) {
+  console.log(' --- changeDataInStoreAction');
+  return {
+    type: 'CHANGESTORE',
+    items: items,
+    arg: arg
+  };
+}
+function getDataAction(arg) {
+  console.log('getDataAction arg:', arg);
+  return Object(_providers__WEBPACK_IMPORTED_MODULE_0__["getDataProvider"])(arg);
+}
+
+/***/ }),
+
+/***/ "./app/FetchRedux2019/providers.js":
+/*!*****************************************!*\
+  !*** ./app/FetchRedux2019/providers.js ***!
+  \*****************************************/
+/*! exports provided: getDataProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDataProvider", function() { return getDataProvider; });
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./app/FetchRedux2019/actions.js");
+
+function getDataProvider(arg) {
+  console.log('getDataProvider arg', arg);
+  return function (dispatch) {
+    fetch('http://5826ed963900d612000138bd.mockapi.io/items').then(function (response) {
+      return response;
+    }).then(function (response) {
+      return response.json();
+    }).then(function (items) {
+      return dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_0__["changeDataInStoreAction"])(items, arg));
+    });
+  };
+}
+
+/***/ }),
+
+/***/ "./app/FetchRedux2019/store.js":
+/*!*************************************!*\
+  !*** ./app/FetchRedux2019/store.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+
+
+var initialState = {
+  total: 0,
+  items: []
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'CHANGESTORE':
+      console.log('CHANGESTORE REDUCE arg:', action.arg);
+      state.items = action.items;
+      state.total = action.items.length;
+      return {
+        items: state.items,
+        total: state.total
+      };
+
+    default:
+      return state;
+  }
+}
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"]));
+store.subscribe(function () {
+  return console.log('FETCH (with DispToProps) STORE CHANGED'
+  /*, store.getState()*/
+  );
+});
+/* harmony default export */ __webpack_exports__["default"] = (store);
+
+/***/ }),
+
 /***/ "./app/MyComponent.js":
 /*!****************************!*\
   !*** ./app/MyComponent.js ***!
@@ -1056,6 +1303,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Fetch_store__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Fetch/store */ "./app/Fetch/store.js");
 /* harmony import */ var _FetchDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./FetchDispatchToProps/Component */ "./app/FetchDispatchToProps/Component.js");
 /* harmony import */ var _FetchDispatchToProps_store__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./FetchDispatchToProps/store */ "./app/FetchDispatchToProps/store.js");
+/* harmony import */ var _FetchRedux2019_Component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./FetchRedux2019/Component */ "./app/FetchRedux2019/Component.js");
+/* harmony import */ var _FetchRedux2019_store__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./FetchRedux2019/store */ "./app/FetchRedux2019/store.js");
+
+
 
 
 
@@ -1083,23 +1334,49 @@ var store = Object(_store__WEBPACK_IMPORTED_MODULE_5__["default"])(); // You can
 // );
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _newRedux_store__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_newRedux_Component__WEBPACK_IMPORTED_MODULE_4__["default"], null)), document.getElementById('newRedux'));
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _CounterComponent_store__WEBPACK_IMPORTED_MODULE_9__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponent_Component__WEBPACK_IMPORTED_MODULE_8__["default"], null)), document.getElementById('counterComponent'));
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _CounterComponentDispatchToProps_store__WEBPACK_IMPORTED_MODULE_11__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CounterComponentDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_10__["default"], null)), document.getElementById('counterComponentDispProps'));
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _Fetch_store__WEBPACK_IMPORTED_MODULE_13__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Fetch_Component__WEBPACK_IMPORTED_MODULE_12__["default"], null)), document.getElementById('fetch'));
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: _FetchDispatchToProps_store__WEBPACK_IMPORTED_MODULE_15__["default"]
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FetchDispatchToProps_Component__WEBPACK_IMPORTED_MODULE_14__["default"], null)), document.getElementById('fetchdispprops'));
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
-  store: store
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MyComponent__WEBPACK_IMPORTED_MODULE_6__["default"], null)), document.getElementById('root'));
+  store: _FetchRedux2019_store__WEBPACK_IMPORTED_MODULE_17__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FetchRedux2019_Component__WEBPACK_IMPORTED_MODULE_16__["default"], null)), document.getElementById('newReduxFetch2019')); // render(
+//     <Provider store={newStore}>
+//         <NewReduxComponent/>
+//     </Provider>,
+//     document.getElementById('newRedux')
+// );
+// render(
+//     <Provider store={newStore}>
+//         <NewReduxComponent/>
+//     </Provider>,
+//     document.getElementById('newRedux')
+// );
+// render(
+//     <Provider store={CounterStore}>
+//         <CounterComponent/>
+//     </Provider>,
+//     document.getElementById('counterComponent')
+// );
+// render(
+//     <Provider store={CounterDispToPropsStore}>
+//         <CounterComponentDispToProps/>
+//     </Provider>,
+//     document.getElementById('counterComponentDispProps')
+// );
+// render(
+//     <Provider store={FetchStore}>
+//         <ReduxFetch/>
+//     </Provider>,
+//     document.getElementById('fetch')
+// );
+// render(
+//     <Provider store={FetchStoreDispatchToProps}>
+//         <ReduxFetchDispatchToProps/>
+//     </Provider>,
+//     document.getElementById('fetchdispprops')
+// );
+// render(
+//     <Provider store={store}>
+//         <MyComponent />
+//     </Provider>,
+//     document.getElementById('root')
+// );
 
 /***/ }),
 
@@ -1316,7 +1593,7 @@ function reducer() {
       };
 
     case 'ADD':
-      var newArray = state.items.push(action.value);
+      state.items.push(action.value);
       console.log('state.items', state.items, '   action.value:', action.value);
 
     /*return{

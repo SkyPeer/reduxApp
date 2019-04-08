@@ -22,6 +22,9 @@ import FetchStore from './Fetch/store'
 import ReduxFetchDispatchToProps from './FetchDispatchToProps/Component'
 import FetchStoreDispatchToProps from './FetchDispatchToProps/store'
 
+import ReduxFetch2019 from './FetchRedux2019/Component'
+import ReduxFetchStore from './FetchRedux2019/store'
+
 const store = configureStore(); // You can also pass in an initialState here
 //const counterStore = CounterStore();
 
@@ -36,46 +39,60 @@ const store = configureStore(); // You can also pass in an initialState here
 // );
 
 render(
-    <Provider store={newStore}>
-        <NewReduxComponent/>
-    </Provider>,
-    document.getElementById('newRedux')
-);
+    <Provider store={ReduxFetchStore}>
+    <ReduxFetch2019/>
+</Provider>,
+document.getElementById('newReduxFetch2019')
+)
 
-render(
-    <Provider store={CounterStore}>
-        <CounterComponent/>
-    </Provider>,
-    document.getElementById('counterComponent')
-);
+// render(
+//     <Provider store={newStore}>
+//         <NewReduxComponent/>
+//     </Provider>,
+//     document.getElementById('newRedux')
+// );
 
-render(
-    <Provider store={CounterDispToPropsStore}>
-        <CounterComponentDispToProps/>
-    </Provider>,
-    document.getElementById('counterComponentDispProps')
-);
+// render(
+//     <Provider store={newStore}>
+//         <NewReduxComponent/>
+//     </Provider>,
+//     document.getElementById('newRedux')
+// );
 
-render(
-    <Provider store={FetchStore}>
-        <ReduxFetch/>
-    </Provider>,
+// render(
+//     <Provider store={CounterStore}>
+//         <CounterComponent/>
+//     </Provider>,
+//     document.getElementById('counterComponent')
+// );
 
-    document.getElementById('fetch')
-);
+// render(
+//     <Provider store={CounterDispToPropsStore}>
+//         <CounterComponentDispToProps/>
+//     </Provider>,
+//     document.getElementById('counterComponentDispProps')
+// );
 
-render(
-    <Provider store={FetchStoreDispatchToProps}>
-        <ReduxFetchDispatchToProps/>
-    </Provider>,
+// render(
+//     <Provider store={FetchStore}>
+//         <ReduxFetch/>
+//     </Provider>,
 
-    document.getElementById('fetchdispprops')
-);
+//     document.getElementById('fetch')
+// );
+
+// render(
+//     <Provider store={FetchStoreDispatchToProps}>
+//         <ReduxFetchDispatchToProps/>
+//     </Provider>,
+
+//     document.getElementById('fetchdispprops')
+// );
 
 
-render(
-    <Provider store={store}>
-        <MyComponent />
-    </Provider>,
-    document.getElementById('root')
-);
+// render(
+//     <Provider store={store}>
+//         <MyComponent />
+//     </Provider>,
+//     document.getElementById('root')
+// );
